@@ -1,3 +1,4 @@
+//des commentaires perso sont présents en plus de ceux du formateur
 //function que je déclare et dont je vais me servir
 function logFruits(x) {
   let i = 0;
@@ -23,6 +24,7 @@ function backup() {
     fruits.push(bFruits[fruits.length]);
   }
 }
+
 //------------------fin déclaration function
 
 const fruits = ["oranges", "pommes", "citrons"];
@@ -74,10 +76,14 @@ console.log(fruits[posPom]);
 // 1) trouver dans la doc la méthode qui permet de réaliser l'instruction le plus simplement possible
 // 2) l'utiliser sur le tableau
 // 3) logger le tableau pour vérifier
+fruits[fruits.length] = "pastèque";
+logFruits("add Pastèque");
+fruits.pop();
 
 // ajoutez des bananes au tout début de votre tableau
 fruits.unshift("bananes");
 logFruits("banane");
+
 // retirez le premier élément dans votre tableau
 fruits.splice(0, 1);
 // retirez le dernier élément de votre tableau
@@ -88,13 +94,15 @@ logFruits("splice last");
 save();
 fruits.splice(2); // OU fruits.length=2;
 logFruits("2 premiers");
-backup();
 
 // effacez l'instruction précédente pour retrouver le tableau dans son état d'avant
+backup();
 // conservez uniquement les trois premiers éléments du tableau en partant du deuxième élément
-
-fruits.splice(0, 1);
+console.log("On peut faire comme ça ↓");
+console.log(fruits.slice(1, 4));
+fruits.shift();
 fruits.splice(4);
+console.log("Ou comme ça ↓");
 logFruits("3 seconds");
 
 // Part 3 : plusieurs tableaux !
@@ -133,26 +141,29 @@ console.log(fusionFrigo);
 // =========
 // =========
 // Part 5 : différentes méthodes souvent utilisées
-// *je cherche un élément en particulier basé sur un critère de mon choix.
+// *chercher un élément en particulier basé sur un critère de mon choix.
 const agesDeLaFamille = [1, 3, 34, 30];
 // trouvez la méthode qui permet de chercher un élément.
 // cherchez 3 dans le tableau, stockez le, loggez le
-let where3 = agesDeLaFamille.indexOf(3); //a refaire
-//console.log(where3); // OU console.log(agesDeLaFamille.indexOf(3));
+let where3 = agesDeLaFamille.find(element => element === 3);
+console.log(where3);
 
 // cherchez 5 dans le tableau, stockez le, loggez le
-let where5 = agesDeLaFamille.indexOf(5);
-//console.log(where5);
-//console.log(agesDeLaFamille[where5]);
+let where5 = agesDeLaFamille.find(element => element === 5);
+console.log(where5);
 
 // d'après les deux résultats, que déduisez-vous du fonctionnement de la méthode ?
-//LORSQUE UNDEFINED ALORS RENVOIE -1
+//ELLE CHERCHE LE PREMIER ELEMENT CORRESPONDANT A LA RECHERCHE
 
 // exemple avec objets :
 const personNames = [{ name: "William" }, { name: "Toto" }];
 
 // cherchez quelqu'un dans le tableau dont le name correspond à William, stockez le, loggez le
+let searchWill = element => element.name === "William";
+console.log(personNames.find(searchWill));
 // cherchez quelqu'un dans le tableau dont le name correspond à Jo, stockez le, loggez le
+let searchJo = element => element.name === "Jo";
+console.log(personNames.find(searchJo));
 // d'après ces deux résultats et les deux précédents, qu'en déduisez-vous ?
 // *est-ce que mon tableau contient ou pas ( et les deux résultats sont ok) une valeur en particulier ?
 const names = ["Jo", "Lou"];
@@ -168,17 +179,19 @@ const notesDeMaths = [1, 4, 6];
 // utilisez la méthode en utilisant la condition suivante :
 // est-ce que toutes les notesDeMaths sont inférieures à 10 ?
 // et stockez le résultat
+console.log(notesDeMaths.every(note => note < 10));
 
 // qu'en déduisez-vous en loggant la résultat ?
 
 //* est-ce que certains ont un iphone ?
 // mêmes instructions que juste au dessus, SAUF qu'ici on veut juste vérifier qu'au moins une note est supérieure à 2
+console.log(notesDeMaths.every(note => note > 2));
 
 // * filter un tableau
 const notesDeGeo = [12, 11, 7, 8, 10];
 // trouvez la méthode qui permet de filtrer un tableau
-
 // filtrez votre tableau pour avoir un tableau qui ne contient que les notes supérieures ou égales à la moyenne.
+console.log(notesDeGeo.filter(note => note >= 10));
 
 // * transformer un tableau
 const noms = ["toto", "bernard"];
