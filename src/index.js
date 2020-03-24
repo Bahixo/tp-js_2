@@ -173,11 +173,12 @@ console.log(personNames.find(searchJo));
 // *est-ce que mon tableau contient ou pas ( et les deux résultats sont ok) une valeur en particulier ?
 const names = ["Jo", "Lou"];
 // trouver la méthode qui demande au tableau s'il possède un élément
-
 // demandez au tableau s'il possède 'Jo'
-
+console.log("Ask to array: Jo?");
+console.log(names.includes("Jo"));
 // demandez au tableau s'il possède 'Dassin'
-
+console.log("Ask to array: Dassin?");
+console.log(names.includes("Dassin"));
 // * est-ce qu'ils sont tous sympas ici ?
 const notesDeMaths = [1, 4, 6];
 // trouvez la méthode qui permet de vérifier si tous les éléments du tableau satisfont une condition
