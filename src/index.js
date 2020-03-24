@@ -25,6 +25,9 @@ function backup() {
   }
 }
 
+function iAm(x) {
+  transfoNoms.push("Je suis " + x);
+}
 //------------------fin déclaration function
 
 const fruits = ["oranges", "pommes", "citrons"];
@@ -137,9 +140,11 @@ console.log(fusionFrigo);
 // si vous allez sur la doc
 // 1) sélectionnez deux méthodes
 // faites en un exemple qui fonctionne.
+console.log("Fonction via Map ↓");
+console.log(frigo.map(x => x + x));
 
-// =========
-// =========
+console.log("Tableau toString ↓");
+console.log(frigo.toString());
 // Part 5 : différentes méthodes souvent utilisées
 // *chercher un élément en particulier basé sur un critère de mon choix.
 const agesDeLaFamille = [1, 3, 34, 30];
@@ -196,5 +201,12 @@ console.log(notesDeGeo.filter(note => note >= 10));
 // * transformer un tableau
 const noms = ["toto", "bernard"];
 // trouver la méthode qui permet de transformer un tableau en un autre avec un process de transformation.
-
 // le nouveau tableau doit contenir des éléments tranformés sous la forme: 'je suis' + le prenom dans le tableau de base
+let transfoNoms = [];
+// let i=0;
+// while(transfoNoms.length<noms.length){
+//   transfoNoms[i]="Je suis "+noms[i];
+//   i++;
+// }
+noms.forEach(iAm);
+console.log(transfoNoms);
